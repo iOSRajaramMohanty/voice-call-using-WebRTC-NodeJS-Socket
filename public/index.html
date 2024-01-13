@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="index.css" />
+    <!-- <link rel = "stylesheet" href = "node_modules//bootstrap/dist/css/bootstrap.min.css"/>  -->
+    <link rel = "stylesheet" href = "https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css"/> 
+    <title>Vioce calling</title>
+</head>
+<body>
+<div>
+    <div id="userId"></div>
+    <!-- <div class="remote-video">
+        <div>Call:</div>
+        <video id="remoteVideo" playsinline autoplay></video>
+    </div>
+    <div class="local-video">
+        <div>Me:</div>
+        <video id="localVideo" playsinline autoplay muted></video>
+    </div> -->
+
+    <div class = "row  text-center"> 
+            <div class = "col-md-7"> 
+                Remote audio: <audio id = "remoteAudio" 
+               controls autoplay></audio> 
+            </div>
+				
+            <div class = "col-md-12"> 
+                My audio: <audio id = "localAudio" 
+                  controls autoplay></audio> 
+            </div> 
+				
+         </div> 
+    <!-- <div>
+        Users:
+    </div>
+    <div id="usersList">
+        No users connected
+    </div> -->
+
+    <!-- <div>
+        <div id="call">Call</button>
+    </div>
+
+    <div>
+        <div id="callEnd">Call End</button>
+    </div> -->
+    <div class = "row text-center"> 
+        <div>
+            Users:
+        </div>
+        <div id="usersList">
+            No users connected
+        </div>
+        <div class = "col-md-12"> 
+           <button id = "call" class = "btn-success btn">Call</button> 
+           <button id = "callEnd" class = "btn-danger btn">Hang Up</button> 
+        </div> 
+     </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/socket.io-client@2/dist/socket.io.js"></script>
+<script src="index.js"></script>
+</body>
+</html>

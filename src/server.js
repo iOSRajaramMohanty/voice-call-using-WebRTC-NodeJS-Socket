@@ -35,12 +35,12 @@ io.on('connection', socket => {
 
   socket.on('notification', data => {
     console.log("notification",data);
-    socket.broadcast.emit('notification-payload', data);
+    socket.to(data.to).emit('notification-payload', data);
   })
 
   socket.on('notification-action', data => {
     console.log("notification-action",data);
-    socket.broadcast.emit('notification-broadcast-action', data);
+    socket.to(data.from).emit('notification-broadcast-action', data);
   })
 
   socket.on('mediaOffer', data => {

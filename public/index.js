@@ -14,7 +14,7 @@ createPeerInit();
 // Connecting to socket
 var socket;
 const connectToSocket = () => {
-  socket = io('http://localhost:3000');//172.20.10.2//192.168.114.248//192.168.1.104
+  socket = io(`http://localhost:3000`);//172.20.10.2//192.168.114.248//192.168.1.104
 }
 
 connectToSocket();
@@ -95,6 +95,7 @@ socket.on('mediaAnswer', async (data) => {
 
 // ICE layer
 peer.onicecandidate = (event) => {
+  console.log("onicecandidate");
   sendIceCandidate(event);
 }
 

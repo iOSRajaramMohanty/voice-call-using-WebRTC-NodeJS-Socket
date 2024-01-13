@@ -22,6 +22,7 @@ console.log(requestIp.address());
 let connectedUsers = [];
 
 io.on('connection', socket => {
+  console.log("connection");
   connectedUsers.push(socket.id);
 
   socket.on('disconnect', () => {
@@ -32,21 +33,12 @@ io.on('connection', socket => {
   socket.on('hang-up', () => {
     socket.broadcast.emit('leave')
   })
-
-  socket.on('notification', data => {
-    console.log("notification",data);
-    socket.to(data.to).emit('notification-payload', data);
-  })
-
-  socket.on('notification-action', data => {
-    console.log("notification-action",data);
-    socket.to(data.from).emit('notification-broadcast-action', data);
-  })
-
+  
   socket.on('mediaOffer', data => {
     console.log("mediaOffer");
     socket.to(data.to).emit('mediaOffer', {
       from: data.from,
+      to:data.to,
       offer: data.offer
     });
   });

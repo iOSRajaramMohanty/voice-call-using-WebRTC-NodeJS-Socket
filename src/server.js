@@ -9,7 +9,9 @@ const port = 3000
 
 const requestIp = require('ip');
 
+app.use(express.json())
 app.use(express.static(path.join(__dirname, '../public')));
+app.use('/', require('../routes/apis/audioCall'));
 
 console.log(requestIp.address());
 
@@ -33,9 +35,9 @@ io.on('connection', socket => {
   socket.on('hang-up', () => {
     socket.broadcast.emit('leave')
   })
-  
+
   socket.on('mediaOffer', data => {
-    console.log("mediaOffer");
+    console.log("mediaOffer",data.offer);
     socket.to(data.to).emit('mediaOffer', {
       from: data.from,
       to:data.to,
